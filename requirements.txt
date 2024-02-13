@@ -3,3 +3,5 @@ python-dotenv==0.21.0
 openai==1.9.0
 pymilvus==2.3.6
 numpy==1.26.3
+transformers==4.37.2
+torch==2.2.0

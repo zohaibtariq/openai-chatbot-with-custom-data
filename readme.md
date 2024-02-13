@@ -1,5 +1,5 @@
 
-## STEPS TO INSTALL
+## STEPS
 
 #### create .env file and insert openai key.  [Generate Openai API KEY](https://platform.openai.com/api-keys) 
 
@@ -30,6 +30,21 @@ docker compose up -d
 ```bash
 docker exec -it flask-chatbot-app bash
 ```
+
+---
+
+#### MOST IMPORTANT STEP CHOOSE ANY 1
+
+###### 1 - to run scripts of open AI code (if you have open api key)
+```bash
+cd openai
+````
+###### 2 - to run scripts without open AI code (if you don't have open api key)
+```bash
+cd custom
+````
+
+---
 
 #### 1 - Generate city embeddings and dump it to a JSON file
 
