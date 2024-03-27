@@ -1,13 +1,7 @@
 
-## STEPS
+## CHAT BOT + CUSTOM DATA SET  (WITH & WITHOUT OPEN AI)
 
-#### create .env file and insert openai key.  [Generate Openai API KEY](https://platform.openai.com/api-keys) 
-
-```bash
-OPENAI_API_KEY=""
-```
-
-#### follow sequentially
+#### follow steps sequentially
 
 ```bash
 git clone https://github.com/zohaibtariq/openai-chatbot-with-custom-data.git
@@ -39,6 +33,13 @@ docker exec -it flask-chatbot-app bash
 ```bash
 cd openai
 ````
+
+#### required for openai only, create .env file and insert openai key.  [Generate Openai API KEY](https://platform.openai.com/api-keys) 
+
+```bash
+OPENAI_API_KEY=""
+```
+
 ###### 2 - to run scripts without open AI code (if you don't have open api key)
 ```bash
 cd custom
