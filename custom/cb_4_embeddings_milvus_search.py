@@ -29,7 +29,7 @@ def generate_user_query_embedding(query):
     return outputs.last_hidden_state.mean(dim=1).squeeze(0).numpy()
 
 
-print("CUSTOM - Start searching based on vector similarity")
+print("\n\n\nCUSTOM - Start searching based on vector similarity")
 
 search_params = {
     "metric_type": "L2",
@@ -67,8 +67,8 @@ search_vector = generate_user_query_embedding(query_user)
 result = collection.search([search_vector], anns_field="embeddings", param=search_params, limit=1,
                            output_fields=["city_description"])
 
-# print("result")
-# print(result)
+print("result")
+print(result)
 
 system_content = ""
 
@@ -76,8 +76,8 @@ for hits in result:
     for hit in hits:
         # print("hit")
         # print(hit.distance)
-        if hit.distance <= 50:
-            system_content += " \n\n\n " + hit.entity.get('city_description')
+        # if hit.distance <= 50:
+        system_content += " \n\n\nScore: " + str(hit.distance) + "\n\nContent: \n\n" + hit.entity.get('city_description')
 
-print('CUSTOM - Final System Content...')
+print('\n\nCUSTOM - Final System Content...')
 print(system_content)
