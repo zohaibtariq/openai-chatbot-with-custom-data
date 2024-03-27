@@ -52,7 +52,7 @@ search_params = {
 
 # RELATED
 # query_user = "Where to go for jubilant vacations?"  # 1.44
-# query_user = "Can you mention a popular pastry often associated with French cuisine?" # 1.0
+query_user = "Can you mention a popular pastry often associated with French cuisine?" # 1.0
 # query_user = "Where might one find beautiful coastal landscapes and architectural marvels in a country known for
 # its diverse wildlife?"  # 1.383
 # query_user = "Which city is famed for its lively music, colorful festivals, and vibrant street culture in a South American nation celebrated for its rainforests and soccer prowess?"# 0.975
@@ -64,8 +64,8 @@ search_params = {
 # query_user = 'bollywood glamorous city'  # 0.99
 # query_user = 'most modern city'  # 1.3454
 # query_user = 'most historical city'  # 1.365
-query_user = 'For tourism which city has cheap and best Attractions and Landmarks, Accommodation, Transportation, Dining and Cuisine, Events and Festivals, Safety and Security,\
-                Weather and Climate, Language and Communication, Budget and Expenses, Local Tips and Recommendations'  # 1.32
+# query_user = 'For tourism which city has cheap and best Attractions and Landmarks, Accommodation, Transportation, Dining and Cuisine, Events and Festivals, Safety and Security,\
+                # Weather and Climate, Language and Communication, Budget and Expenses, Local Tips and Recommendations'  # 1.32
 search_vector = generate_user_query_embedding(query_user)
 # print(len(search_vector))  # Print the length of the search vector
 
@@ -80,9 +80,9 @@ system_content = ""
 for hits in result:
     for hit in hits:
         # print("hit")
-        # print(hit)
+        # print(hit.distance)
         if hit.distance < 1.5:
-            system_content += " \n\n\n " + hit.entity.get('city_description')
+            system_content += " \n\n\nScore: " + str(hit.distance) + "\n\nContent: \n\n" + hit.entity.get('city_description')
 
-print('Final System Content...')
+print('\n\nCUSTOM - Final System Content...')
 print(system_content)

@@ -67,8 +67,8 @@ search_vector = generate_user_query_embedding(query_user)
 result = collection.search([search_vector], anns_field="embeddings", param=search_params, limit=1,
                            output_fields=["city_description"])
 
-print("result")
-print(result)
+# print("result")
+# print(result)
 
 system_content = ""
 
